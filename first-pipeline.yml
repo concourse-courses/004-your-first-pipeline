@@ -1,0 +1,13 @@
+---
+resources:
+- name: episode-004-repo
+  type: git
+  source:
+    uri: https://github.com/concourse-courses/004-your-first-pipeline.git
+
+jobs:
+- name: hello-world
+  plan:
+  - get: episode-004-repo
+  - task: say-hello
+    file: episode-004-repo/tasks/hello-world/task.yml
